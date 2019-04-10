@@ -5,6 +5,7 @@ FROM centos/s2i-base-centos7:latest
 RUN HOME=/root && \
     INSTALL_PKGS="nano python-devel" && \
     yum install -y centos-release-scl && \
+    yum install rh-nodejs8 && \
     yum -y --setopt=tsflags=nodocs install --enablerepo=centosplus $INSTALL_PKGS && \
     rpm -V $INSTALL_PKGS && \
     yum -y clean all --enablerepo='*'
